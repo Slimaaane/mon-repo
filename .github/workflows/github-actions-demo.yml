@@ -13,3 +13,8 @@ jobs:
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
       - uses: actions/checkout@v4
       - run: python job.py
+      - run: echo "Contenu genere par la pipeline" > output.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mon-artefact
+          path: output.txt
